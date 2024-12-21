@@ -18,7 +18,7 @@ export class StatusBar {
 
     constructor(plugin: LatexOCR) {
         this.plugin = plugin;
-        this.span = plugin.addStatusBarItem();
+        this.span = plugin.addStatusBarItem("latex-pix.stop-server");
         this.span.createEl("span", { text: "LatexOCR ❌" });
         this.updateStatusBar();
         if (!plugin.settings.showStatusBar) {

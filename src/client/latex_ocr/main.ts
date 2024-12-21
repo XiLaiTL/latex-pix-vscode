@@ -102,6 +102,18 @@ export default class LatexOCR extends Plugin{
         });
         this.context.subscriptions.push(command);
 
+        const commandStop = vscode.commands.registerCommand("latex-pix.stop-server", async () => {
+            
+            const res = await vscode.window.showWarningMessage("Stop the OCR Server?", "Stop", "Restart", "Cancel");
+            if (res === "Stop") {
+                this.onunload();
+            }
+            else if (res === "Restart") {
+                this.onshow();
+            }
+        });
+        this.context.subscriptions.push(commandStop);
+
         this.statusBar = new StatusBar(this);
 
     }

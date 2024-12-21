@@ -57,7 +57,7 @@ LaTeX-Pix：将公式截图转换为LaTeX代码的VSCode插件
 
 ## Known Issues
 
-无。
+不能结束掉latex-pix-server进程！得手动停掉。
 
 ## Release Notes
 

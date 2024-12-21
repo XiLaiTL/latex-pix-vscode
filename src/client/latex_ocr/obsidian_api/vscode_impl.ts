@@ -46,8 +46,9 @@ export class Plugin{
     constructor(context: vscode.ExtensionContext) {
         this.context = context;
     }
-    addStatusBarItem(): StatusBarItem {
+    addStatusBarItem(commandId?:string): StatusBarItem {
         const statusBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
+        statusBar.command = commandId;
         this.context.subscriptions.push(statusBar);
         return new StatusBarItem(statusBar);
     }
