@@ -1,0 +1,97 @@
+{
+  "name": "latex-pix",
+  "displayName": "Latex Pix",
+  "description": "Just paste the snapshot to get the latex code",
+  "version": "0.0.2",
+  "license": "GPL-3.0-only",
+  "publisher": "XiLaiTL",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XiLaiTL/latex-pix-vscode.git"
+  },
+  "activationEvents": [
+    "onLanguage:latex"
+  ],
+  "main": "./dist/main.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "latex-pix.paste-latex-from-clipboard",
+        "title": "Paste Latex From Clipboard",
+        "icon": "$(pencil)"
+      },
+      {
+        "command": "latex-pix.paste-latex-from-path",
+        "title": "Paste Latex From Image Path",
+        "icon": "$(pencil)"
+      },
+      {
+        "command": "latex-pix.paste-latex-from-open-path",
+        "title": "Paste Latex From Openning Image Path",
+        "icon": "$(pencil)"
+      }
+    ],
+    "configuration": {
+      "title": "Latex Pix",
+      "properties": {
+        "latex-pix.ocr.activate": {
+          "type": "boolean",
+          "markdownDescription": "To active the Latex OCR, need download the model",
+          "default": true
+        },
+        "latex-pix.ocr.delimiters": {
+          "type": "string",
+          "markdownDescription": "String to put around Latex code, usually `$` or `$$` for math mode",
+          "default": "$$"
+        },
+        "latex-pix.ocr.pythonPath": {
+          "type": "string",
+          "markdownDescription": "Path to look for python installation or latex-pix-server installation, like `C:/Python/bin/python.exe`",
+          "default": "python3"
+        },
+        "latex-pix.ocr.cacheDirPath": {
+          "type": "string",
+          "markdownDescription": "Path where local model is cached, default under the plugin folder",
+          "default": ""
+        },
+        "latex-pix.ocr.port": {
+          "type": "string",
+          "markdownDescription": "Port for latex-pix-server",
+          "default": "50051"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -b && esbuild ./src/extension.ts --bundle --outfile=dist/main.js --external:vscode --format=cjs --platform=node --sourcemap=external --loader:.svg=file",
+    "watch": "tsc -b && esbuild ./src/extension.ts --bundle --outfile=dist/main.js --external:vscode --format=cjs --platform=node --sourcemap=external --loader:.svg=file && tsc -b --watch ",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.82.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "esbuild": "0.17.3",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.9.9",
+    "axios": "^1.7.9",
+    "protobufjs": "^7.2.4",
+    "ts-proto": "^1.165.0"
+  }
+}
