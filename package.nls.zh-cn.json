@@ -1,0 +1,13 @@
+{
+  "latex-pix.ocr.port": "用于指定*latex-pix-server*的端口号",
+  "latex-pix.ocr.cacheDirPath": "指定本地模型的缓存路径。当*latex-pix*插件需要下载或更新OCR模型时，这些模型将被缓存到指定的路径下。",
+  "latex-pix.ocr.pythonPath": "指定Python安装路径或*latex-pix-server*的安装路径。当指定的路径是Python安装路径时，请首先执行对应路径下的`pip install latex-ocr-server`",
+  "latex-pix.ocr.delimiters": "指定LaTeX代码周围的分隔符。在LaTeX中，数学模式通常使用`$`或`$$`来标识。",
+  "latex-pix.ocr.activate": "激活LaTeX OCR（光学字符识别）功能",
+  "Latex pasted to note": "LaTeX公式已粘贴到文本上",
+  "latex-pix.stop-server": "要关闭OCR的服务端吗？",
+  "latex-pix.load.model-from": "加载模型：",
+  "latex-pix.load.server-from": "加载服务端：",
+  "latex-pix.generate.clipboard": "⚙️ 正在从剪切板图片生成公式...",
+  "latex-pix.generate.path": "⚙️ 正在从路径读取的图片生成公式"
+}

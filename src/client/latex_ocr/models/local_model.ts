@@ -54,10 +54,10 @@ export class LocalModel implements Model {
                 if (!IMG_EXTS.includes(file.ext.substring(1))) {
                     reject(`Unsupported image extension ${file.ext}`);
                 }
-                notice = new Notice(`⚙️ Generating Latex for ${file.base}...`, 0);
+                notice = new Notice(`${vscode.l10n.t("latex-pix.generate.path")} ${file.base}...`, 0);
             }
             else {
-                notice = new Notice(`⚙️ Generating Latex for clipboard image...`, 0);
+                notice = new Notice(vscode.l10n.t("latex-pix.generate.clipboard"), 0);
             }
             const d = this.plugin_settings.delimiters;
             const debug = this.plugin_settings.debug;

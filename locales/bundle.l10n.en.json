@@ -1,0 +1,12 @@
+{
+  "latex-pix.ocr.port": "Port for latex-pix-server",
+  "latex-pix.ocr.cacheDirPath": "Path where local model is cached, default under the plugin folder",
+  "latex-pix.ocr.pythonPath": "Path to look for python installation or latex-pix-server installation, like `C:/Python/bin/python.exe`",
+  "latex-pix.ocr.delimiters": "String to put around Latex code, usually `$` or `$$` for math mode",
+  "latex-pix.ocr.activate": "To active the Latex OCR, need download the model",
+  "latex-pix.stop-server": "Do you want to stop the OCR server?",
+  "latex-pix.load.model-from": "Loading Model from ",
+  "latex-pix.load.server-from": "Loading Server from ",
+  "latex-pix.generate.clipboard": "⚙️ Generating Latex for clipboard image...",
+  "latex-pix.generate.path": "⚙️ Generating Latex for"
+}

@@ -8,6 +8,15 @@
   "engines": {
     "vscode": "^1.82.0"
   },
+  "l10n": "./locales",
+  "keywords": [
+    "latex",
+    "tex",
+    "ocr",
+    "formula",
+    "math",
+    "pix"
+  ],
   "categories": [
     "Other"
   ],
@@ -16,7 +25,11 @@
     "url": "https://github.com/XiLaiTL/latex-pix-vscode.git"
   },
   "activationEvents": [
-    "onLanguage:latex"
+    "onLanguage:tex",
+    "onLanguage:latex",
+    "onLanguage:doctex",
+    "onLanguage:rsweave",
+    "onLanguage:jlweave"
   ],
   "main": "./dist/main.js",
   "contributes": {
@@ -42,27 +55,27 @@
       "properties": {
         "latex-pix.ocr.activate": {
           "type": "boolean",
-          "markdownDescription": "To active the Latex OCR, need download the model",
+          "markdownDescription": "%latex-pix.ocr.activate%",
           "default": true
         },
         "latex-pix.ocr.delimiters": {
           "type": "string",
-          "markdownDescription": "String to put around Latex code, usually `$` or `$$` for math mode",
+          "markdownDescription": "%latex-pix.ocr.delimiters%",
           "default": "$$"
         },
         "latex-pix.ocr.pythonPath": {
           "type": "string",
-          "markdownDescription": "Path to look for python installation or latex-pix-server installation, like `C:/Python/bin/python.exe`",
+          "markdownDescription": "%latex-pix.ocr.pythonPath%",
           "default": "python3"
         },
         "latex-pix.ocr.cacheDirPath": {
           "type": "string",
-          "markdownDescription": "Path where local model is cached, default under the plugin folder",
+          "markdownDescription": "%latex-pix.ocr.cacheDirPath%",
           "default": ""
         },
         "latex-pix.ocr.port": {
           "type": "string",
-          "markdownDescription": "Port for latex-pix-server",
+          "markdownDescription": "%latex-pix.ocr.port%",
           "default": "50051"
         }
       }
@@ -70,6 +83,7 @@
   },
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
+    "copy-locales":"node ./scripts/copy_localization.cjs",
     "compile": "tsc -b && esbuild ./src/extension.ts --bundle --outfile=dist/main.js --external:vscode --format=cjs --platform=node --sourcemap=external --loader:.svg=file",
     "watch": "tsc -b && esbuild ./src/extension.ts --bundle --outfile=dist/main.js --external:vscode --format=cjs --platform=node --sourcemap=external --loader:.svg=file && tsc -b --watch ",
     "pretest": "pnpm run compile && pnpm run lint",

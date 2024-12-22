@@ -75,8 +75,8 @@ export default class LatexOCR extends Plugin{
         if (!this.settings.pythonPath || this.settings.pythonPath === "python3") {            
             this.settings.pythonPath = path.resolve(this.pluginPath, "server/latex-pix-server.exe");
         }
-        vscode.window.showInformationMessage("Loading Model from " + this.settings.cacheDirPath);
-        vscode.window.showInformationMessage("Loading Server from " + this.settings.pythonPath);
+        vscode.window.showInformationMessage(vscode.l10n.t("latex-pix.load.model-from") + this.settings.cacheDirPath);
+        vscode.window.showInformationMessage(vscode.l10n.t("latex-pix.load.server-from") + this.settings.pythonPath);
 
         this.model = new LocalModel(this.settings);
 
@@ -104,7 +104,7 @@ export default class LatexOCR extends Plugin{
 
         const commandStop = vscode.commands.registerCommand("latex-pix.stop-server", async () => {
             
-            const res = await vscode.window.showWarningMessage("Stop the OCR Server?", "Stop", "Restart", "Cancel");
+            const res = await vscode.window.showWarningMessage(vscode.l10n.t("latex-pix.stop-server"), "Stop", "Restart", "Cancel");
             if (res === "Stop") {
                 this.onunload();
             }
@@ -187,7 +187,7 @@ export default class LatexOCR extends Plugin{
             if (from !== -1) {
                 editor.replaceRange(latex, { line: currLine, ch: from }, { line: currLine, ch: from + fullMessage.length });
                 if (latex !== "") {
-                    new Notice(`🪄 Latex pasted to note`);
+                    new Notice(vscode.l10n.t("Latex pasted to note"));
                 }
                 return;
             }
@@ -201,7 +201,7 @@ export default class LatexOCR extends Plugin{
             if (from !== -1) {
                 editor.replaceRange(latex, { line: currLine, ch: from }, { line: currLine, ch: from + fullMessage.length });
                 if (latex !== "") {
-                    new Notice(`🪄 Latex pasted to note`);
+                    new Notice(vscode.l10n.t("Latex pasted to note"));
                 }
                 return;
             }

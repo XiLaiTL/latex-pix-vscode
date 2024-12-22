@@ -1,7 +1,9 @@
 .vscode/**
 .vscode-test/**
 src/**
+scripts/**
 out/**
+docs/**
 model_cache/**
 .gitignore
 .yarnrc
